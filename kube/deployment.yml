@@ -1,0 +1,20 @@
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: movie-deployment
+        spec:
+          replicas: 1 # Or more, depending on your needs
+          selector:
+            matchLabels:
+              app: movie
+          template:
+            metadata:
+              labels:
+                app: movie
+            spec:
+              containers:
+              - name: movie-container
+                image: mkponline/movie:latest
+                imagePullPolicy: Always # Important for local images
+                ports:
+                - containerPort: 8181 # Replace with your microservice's port

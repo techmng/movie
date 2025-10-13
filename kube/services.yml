@@ -1,0 +1,12 @@
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: movie-service
+        spec:
+          selector:
+            app: movie
+          ports:
+            - protocol: TCP
+              port: 8181 # Port for the service
+              targetPort: 8181 # Port of the container
+          type: NodePort # Or ClusterIP if only internal access is needed
